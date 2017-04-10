@@ -20,7 +20,11 @@ function checkBody(res){
     res.body._id.should.be.equal(POI._id);
     res.body.nome.should.be.equal(POI.nome);
     res.body.x.should.be.equal(POI.x);
+    res.body.x.should.be.Number();
+    res.body.x.should.be.aboveOrEqual(0);
     res.body.y.should.be.equal(POI.y);
+    res.body.y.should.be.Number();
+    res.body.y.should.be.aboveOrEqual(0);
 }
 
 describe('GET /api/pois', function() {
