@@ -1,0 +1,39 @@
+<md-dialog add-item-dialog flex="60">
+  <md-dialog-content class="md-dialog-content">
+
+      <h2 class="md-title">Adicionar -  Ponto de Interesse</h2>
+      
+      <p ng-if="item.form.$submitted && item.form.$invalid" class="md-warn" layout="row" layout-align="start center">
+        <i class="material-icons">error_outline</i>
+        <span>&nbsp; Todos os campos necessários.</span>
+      </p>     
+      
+      <form name="item.form" ng-submit="ctrl.editItem()">
+        <div layout="row" class="input-row">
+          <md-input-container flex>
+            <label>Nome</label>
+            <input name="nome" ng-model="poiTela.nome" md-maxlength="200" required>
+          </md-input-container>
+        </div>
+        <div layout="row" class="input-row">
+          <md-input-container flex>
+            <label>Coordenada X</label>
+            <input name="coordenadaX" ng-model="poiTela.x" md-maxlength="200" required>
+          </md-input-container>
+        </div>
+        <div layout="row" class="input-row">
+          <md-input-container flex>
+            <label>Coordenada Y</label>
+            <input name="coordenadaY" ng-model="poiTela.y" md-maxlength="200" required>
+          </md-input-container>
+        </div>
+
+      </form>
+    </md-content>
+  </md-dialog-content>
+  
+  <div class="md-dialog-actions">
+    <md-button class="md-primary" ng-click="ctrl.editItem()" ng-disabled="item.form.$invalid">Confirmar</md-button>
+    <md-button class="md-primary" ng-click="ctrl.cancel()">Cancelar</md-button>
+  </div>
+</md-dialog>

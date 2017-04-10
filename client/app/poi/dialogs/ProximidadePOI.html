@@ -1,0 +1,46 @@
+<md-dialog add-item-dialog flex="60">
+  <md-dialog-content class="md-dialog-content">
+
+    <h2 class="md-title">Proximidades</h2>
+        <form name="item.form" ng-submit="ctrl.buscar()">
+        <div layout="row">
+            <div layout="row" class="input-row" flex="30">
+                <md-input-container flex>
+                    <label>X</label>
+                    <input name="x" ng-model="filtro.x" md-maxlength="200" required>
+                </md-input-container>
+            </div>
+            <div layout="row" class="input-row" flex="30">
+                <md-input-container flex>
+                    <label>Y</label>
+                    <input name="y" ng-model="filtro.y" md-maxlength="200" required>
+                </md-input-container>
+            </div>
+            <div layout="row" class="input-row" flex="30">
+                <md-input-container flex>
+                    <label>Metros</label>
+                    <input name="metros" ng-model="filtro.metros" md-maxlength="200" required>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-button class="md-primary" ng-click="ctrl.buscar($event)" >
+                    Buscar
+                </md-button>
+            </div>
+        </div>
+        </form>
+        <md-list>
+            <md-list-item class="md-2-line" ng-repeat="poi in pois">
+                <div class="md-list-item-text">
+                <p>{{poi.nome}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+
+    </md-dialog-content>
+  
+    <div class="md-dialog-actions">
+        <md-button class="md-primary" ng-click="ctrl.cancel()">Cancelar</md-button>
+    </div>
+</md-dialog>
+

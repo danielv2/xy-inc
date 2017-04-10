@@ -1,0 +1,38 @@
+<md-dialog add-item-dialog flex="60">
+  <md-dialog-content class="md-dialog-content">
+
+      <h2 class="md-title">Adicionar -  Ponto de Interesse</h2>
+      
+      <p ng-if="err" style="color: red" layout="row" layout-align="start center">
+        <span>&nbsp; {{err}}</span>
+      </p>     
+      
+      <form name="item.form" ng-submit="ctrl.addItem()">
+        <div layout="row" class="input-row">
+          <md-input-container flex>
+            <label>Nome</label>
+            <input name="nome" ng-model="poi.nome" md-maxlength="200" required>
+          </md-input-container>
+        </div>
+        <div layout="row" class="input-row">
+          <md-input-container flex>
+            <label>Coordenada X</label>
+            <input name="x" ng-model="poi.x" md-maxlength="200" required>
+          </md-input-container>
+        </div>
+        <div layout="row" class="input-row">
+          <md-input-container flex>
+            <label>Coordenada Y</label>
+            <input name="y" ng-model="poi.y" md-maxlength="200" required>
+          </md-input-container>
+        </div>
+
+      </form>
+    </md-content>
+  </md-dialog-content>
+  
+  <div class="md-dialog-actions">
+    <md-button class="md-primary" ng-click="ctrl.addItem()" ng-disabled="item.form.$invalid">Confirmar</md-button>
+    <md-button class="md-primary" ng-click="ctrl.cancel()">Cancelar</md-button>
+  </div>
+</md-dialog>
